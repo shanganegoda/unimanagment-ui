@@ -1,0 +1,12 @@
+<div class="content" >
+        <form [formGroup]="yearForm" (ngSubmit) = "onSubmit()">
+            <label>Choose your current level  </label>
+            <select formControlName="name">
+                <option *ngFor="let acYear of year">{{acYear}}</option>
+            </select>
+            <button>Submit</button>
+        </form>
+
+    
+
+</div>
