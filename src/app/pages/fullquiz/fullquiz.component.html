@@ -1,0 +1,47 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+<div class="table-responsive">
+    <div class="col-xl-8 order-xl-1">
+        <div class="testcenter">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 *ngIf="!quiz.id" class="mb-0">New Quiz</h3>
+                                <h3 *ngIf="quiz.id" class="mb-0">Edit Quiz</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label  class="form-control-label">Quiz - {{quiz.title}}</label>
+                    <input [(ngModel)]="quiz.title" placeholder="Quiz title" name="title" class="form-control">
+                    <br>
+                    <button *ngIf="!quiz.id" class="btn btn-primary" (click)="postQuiz(quiz)">Create</button>
+                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="putQuiz(quiz)">Edit</button>
+                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="quiz = {}">Create New</button>
+                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="getQuestionList(quiz.id)">Edit questions</button>
+
+                </div>
+
+                <div>
+                    <ul *ngFor="let quiz of quizzes">
+                    <li (click)="api.selectQuiz(quiz) ;scrollTop()" class="list-group-item" >{{quiz.title}}</li>
+                </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

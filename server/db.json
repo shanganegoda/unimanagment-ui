@@ -1,0 +1,56 @@
+{
+    "subjects": [{
+        "code":"CMIS 1113",
+        "name":"Introduction to Computers and Operating Systems",
+        "level":"1",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 1123",
+        "name":"Computer Programming I",
+        "level":"1",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 1131",
+        "name":"Practical Computing I",
+        "level":"1",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 1212",
+        "name":"Computer Programming II",
+        "level":"1",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 1221",
+        "name":" Practical Computing II",
+        "level":"1",
+        "program":"",
+        "combination":"1,3"
+    },
+
+    
+    {
+        "code":"CMIS 2113",
+        "name":"Object-oriented Programming",
+        "level":"2",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 2123",
+        "name":"Database Management Systems ",
+        "level":"2",
+        "program":"",
+        "combination":"1,3"
+    },{
+        "code":"CMIS 2214",
+        "name":"Data Structures & Analysis of Algorithms",
+        "level":"2",
+        "program":"",
+        "combination":"1,3"
+    }
+
+    ]
+}

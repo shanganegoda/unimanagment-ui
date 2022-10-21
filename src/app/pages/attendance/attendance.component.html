@@ -1,0 +1,98 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--7"></div>
+<div class="table-responsive">
+    <div class="col-xl-8 order-xl-1">
+        <div class="testcenter">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Please start the camera to Get Attendance!</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="card-body"> -->
+                    <!-- For camera -->
+                    <!-- <div class="test">
+                        <ngx-scanner-qrcode (data)="output = $event" #action="scanner"></ngx-scanner-qrcode>
+                    </div> -->
+
+
+                    <!-- data  -->
+                    <!-- <p class="data" [(ngModel)]="getQr">{{ action.data | async }}</p>
+                    <p class="data"> Hi {{output}} </p> -->
+                    
+
+                    <!-- Loading -->
+                    <!-- <p *ngIf="action.isLoading">⌛ Loading...</p> -->
+
+                    <!-- toggleCamera -->
+
+                    <!-- <div class="test">
+                    <button class="btn btn-primary my-4" (click)="action.toggleCamera(); test() ">{{action.isStart ? 'Stop' :
+                        'Start'}}</button>
+                </div>
+                
+                </div> -->
+                <div class="card-body">
+                    <!-- ngx-scanner-qrcode -->
+                    <ngx-scanner-qrcode #action="scanner" (error)="onError($event)" (event)="test($event)">
+                    </ngx-scanner-qrcode>
+
+                    <!-- data  -->
+                    <p class="data">{{ action.data | async }}</p>
+
+                    <!-- Loading -->
+                    <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+                    <!-- toggleCamera -->
+                    <button (click)="handle(action, 'toggleCamera')" class="btn" [class.btn-info]="!action.isStart"
+                        [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+                        <img *ngIf="!action.isStart" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png"
+                            width="30px" />
+                        <img *ngIf="action.isStart" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png"
+                            width="30px" />
+                    </button>
+
+                    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+                        [disabled]="action.isLoading" (click)="handle(action, 'start')">Start</button>
+                    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+                        [disabled]="action.isLoading" (click)="handle(action, 'play')">Play</button>
+                    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+                        [disabled]="action.isLoading" (click)="handle(action, 'pause')">Pause</button>
+                    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+                        [disabled]="action.isLoading" (click)="handle(action, 'stop')">Stop</button>
+                    <!-- <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+                        [disabled]="action.isLoading" (click)="action.download('gx-scanner-qrcode')">Cap</button> -->
+                </div> 
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Index number</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="students">
+                            <tr *ngFor="let data of students" >
+                                <td>{{data.name}}</td>
+                                <td>{{data.index}}</td>
+                            </tr>
+                        </ng-container>
+                        </tbody>
+                    </table>
+                    <div>
+                        <h1>{{timestamp| date:'medium'}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

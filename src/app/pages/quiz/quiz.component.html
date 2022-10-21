@@ -1,0 +1,46 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<div>
+<app-quiznav></app-quiznav>
+</div>
+<div class="table-responsive">
+    <div class="col-xl-8 order-xl-1">
+        <div class="testcenter">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 *ngIf="!question.id" class="mb-0">New Question</h3>
+                                <h3 *ngIf="question.id" class="mb-0">Edit Question</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label  class="form-control-label">Question - {{question.text}}</label>
+                    <input [(ngModel)]="question.text" placeholder="Question" name="question" class="form-control">
+                    <input placeholder="Correct Answer" [(ngModel)]="question.correctAnswer" name="correctAnswer" class="form-control">
+                    
+                    <input placeholder="Wrong answer" [(ngModel)]="question.answer1" name="answer1" class="form-control">
+                    
+                    <input placeholder="Wrong Answer" [(ngModel)]="question.answer2" name="answer2" class="form-control">
+                    
+                    <input placeholder="Wrong Answer" [(ngModel)]="question.answer3" name="answer3" class="form-control">
+                    <button *ngIf="!question.id" class="btn btn-primary" (click)="post(question)">POST</button>
+                    <button *ngIf="question.id" class="btn btn-primary" (click)="put(question)">Edit</button>
+                    <button *ngIf="question.id" class="btn btn-primary" (click)="question = {}">Create New</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-showquestions></app-showquestions>

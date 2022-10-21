@@ -1,0 +1,31 @@
+
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+
+<div class="table-responsive">
+    <div class="col-xl-8 order-xl-1">
+        <div class="testcenter">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Question list</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                   <ul class="list-group" *ngFor="let questions of questions"> 
+                        <li class="clickLink" (click)="api.selectQuestion(questions)" class="list-group-item">{{questions.text}}</li>
+                   </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

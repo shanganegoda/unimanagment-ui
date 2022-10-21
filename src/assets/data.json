@@ -1,0 +1,195 @@
+{
+    "subjects": [
+        {
+            "code": "CMIS 1113",
+            "name": "Introduction to Computers and Operating Systems",
+            "level": "1",
+            "program": "",
+            "combination": "C",
+            "credit": 3
+        },
+        {
+            "code": "CMIS 1123",
+            "name": "Computer Programming I",
+            "level": "1",
+            "program": "",
+            "combination": "C",
+            "credit": 3
+        },
+        {
+            "code": "CMIS 1131",
+            "name": "Practical Computing I",
+            "level": "1",
+            "program": "",
+            "combination": "C",
+            "credit": 1
+        },
+        {
+            "code": "CMIS 1212",
+            "name": "Computer Programming II",
+            "level": "1",
+            "program": "",
+            "combination": "C",
+            "credit": 2
+        },
+        {
+            "code": "CMIS 1221",
+            "name": " Practical Computing II",
+            "level": "1",
+            "program": "",
+            "combination": "C",
+            "credit": 1
+        },
+        {
+            "code": "ELTN 1112",
+            "name": "Fundamentals of Electricity and Magnetism",
+            "level": "1",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },
+        {
+            "code": "ELTN 1122",
+            "name": "Introduction to Semiconductors ",
+            "level": "1",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },
+        {
+            "code": "ELTN 1132",
+            "name": " Basic Digital Electronics",
+            "level": "1",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },
+        {
+            "code": "ELTN 1212",
+            "name": "Basic Electronics - Lab",
+            "level": "1",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },{
+            "code": "ELTN 1222",
+            "name": " General Physics",
+            "level": "1",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },{
+            "code": "IMGT 1112",
+            "name": "Principles of Management",
+            "level": "1",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        },{
+            "code": "IMGT 1122",
+            "name": "Business Economics ",
+            "level": "1",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        },{
+            "code": "IMGT 1132 ",
+            "name": "Entrepreneurial Dynamics",
+            "level": "1",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        },{
+            "code": "IMGT 1212",
+            "name": "Principles of Accounting",
+            "level": "1",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        },
+        
+        {
+            "code": "CMIS 2113",
+            "name": "Object-oriented Programming",
+            "level": "2",
+            "program": "",
+            "combination": "C",
+            "credit": 3
+        },
+        {
+            "code": "CMIS 2123",
+            "name": "Database Management Systems ",
+            "level": "2",
+            "program": "",
+            "combination": "C",
+            "credit": 3
+        },
+        {
+            "code": "CMIS 2214",
+            "name": "Data Structures & Analysis of Algorithms",
+            "level": "2",
+            "program": "",
+            "combination": "C",
+            "credit": 4
+        },{
+            "code": "ELTN 2112",
+            "name": " Electricity and Magnetism",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },{
+            "code": "ELTN 2121",
+            "name": " Electricity and Magnetism - Lab",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 1
+        },{
+            "code": "ELTN 2213",
+            "name": " Semiconductor Devices",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 3
+        },{
+            "code": "ELTN 2221",
+            "name": " Semiconductor Devices - Lab",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 1
+        },{
+            "code": "ELTN 2232",
+            "name": "Analogue Electronics ",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 2
+        },{
+            "code": "ELTN 2241",
+            "name": "Analogue Electronics - Lab ",
+            "level": "2",
+            "program": "",
+            "combination": "E",
+            "credit": 1
+        },{
+            "code": "IMGT 2112",
+            "name": "Analogue Electronics - Lab ",
+            "level": "2",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        },{
+            "code": "IMGT 2122",
+            "name": "Analogue Electronics - Lab ",
+            "level": "2",
+            "program": "",
+            "combination": "I",
+            "credit": 2
+        }
+
+    ]
+
+
+}

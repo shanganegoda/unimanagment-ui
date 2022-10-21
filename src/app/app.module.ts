@@ -13,6 +13,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { GpaComponent } from './pages/gpa/gpa.component';
+import { AttendanceComponent } from './pages/attendance/attendance.component';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { ShowquestionsComponent } from './pages/showquestions/showquestions.component';
+import { QuiznavComponent } from './pages/quiznav/quiznav.component';
+import { FullquizComponent } from './pages/fullquiz/fullquiz.component';
+
+
 
 
 @NgModule({
@@ -23,13 +31,19 @@ import { GpaComponent } from './pages/gpa/gpa.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxScannerQrcodeModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    GpaComponent
+    GpaComponent,
+    QuizComponent,
+    AttendanceComponent,
+    ShowquestionsComponent,
+    QuiznavComponent,
+    FullquizComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

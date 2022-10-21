@@ -1,82 +1,154 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
-      <div class="header-body">
-      </div>
+        <div class="header-body">
+        </div>
     </div>
-  </div>
-    <div class="container-fluid mt--7">
+</div>
+<div class="container-fluid mt--7">
 
-        <div class="table-responsive">
-            <div class="col-xl-8 order-xl-1">
-                <div class="card bg-secondary shadow">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">Please follow the steps to calculate your GPA</h3>
-                            </div>
+    <div class="table-responsive">
+        <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Please follow the steps to calculate your GPA</h3>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-type">Select your current academic year</label>
-                                            <select class="form-control form-control-alternative" [(ngModel)]="selectedAcYearId">
-                                                <option *ngFor="let data of acYearIdDetails" [value]="data.acYearId">{{data.acYear}}</option> 
-                                            </select>
-                                        </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-type">Select your current academic
+                                            year</label>
+                                        <select class="form-control form-control-alternative"
+                                            [(ngModel)]="selectedAcYearId" (change)="onAcademicYearSelected()">
+                                            <option *ngFor="let data of acYearIdDetails" [value]="data.acYearId">
+                                                {{data.acYear}}</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-type">Select your combination</label>
-                                            <select class="form-control form-control-alternative" [(ngModel)]="selectedComb">
-                                                <option *ngFor="let data of combDetails" value="data.combId">{{data.combName}}</option>
-                                            </select>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-type">Select your
+                                            combination</label>
+                                        <select class="form-control form-control-alternative" [(ngModel)]="selectedComb"
+                                            (change)="onOptionsSelected()">
+                                            <option *ngFor="let data of combDetails" [value]="data.combId">
+                                                {{data.combName}}</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row" *ngIf="selectedAcYearId=='3' || selectedAcYearId=='4'">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-type">Select your degree
-                                                program</label>
-                                            <select class="form-control form-control-alternative">
-                                                <option selected="selected" value="Car">General degree
+                            </div>
+                            <div class="row" *ngIf="selectedAcYearId=='3' || selectedAcYearId=='4'">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-type">Select your degree
+                                            program</label>
+                                        <select class="form-control form-control-alternative"
+                                            [(ngModel)]="selectedDegProg">
+                                            <option *ngFor="let data of degProgDetails" [value]="data.progId">
+                                                {{data.progName}}</option>
+                                            <!-- <option selected="selected" value="Car">General degree
                                                 </option>
                                                 <option value="Van">Joint Major</option>
-                                                <option value="Bus">Special Degree</option>
-                                            </select>
-                                        </div>
+                                                <option value="Bus">Special Degree</option> -->
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-type">Select subjects</label>
-                                            <select class="form-control form-control-alternative">
-                                                <option selected="selected" value="Car">CMIS
-                                                </option>
-                                                <option value="Van">ELTN</option>
-                                                <option value="Bus">MATH</option>
-                                                <option value="" >IMGT</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="button"  class="btn btn-primary my-4">
-                                      Next <i class="ni ni-bold-right"></i>
-                                    </button>
-                                  </div>
-
                             </div>
-                        </form>
+                            <div class="row" *ngIf="selectedDegProg=='3'">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-type">Select Special
+                                            Subject</label>
+                                        <select class="form-control form-control-alternative">
+                                            <option>B.Sc.(Special) Degree in Computer Science</option>
+                                            <option>B.Sc.(Special) Degree in Applied Electronics</option>
+                                            <option>B.Sc.(Special) Degree in Industrial Management</option>
+                                            <option>B.Sc.(Special) Degree in Mathematics with Statistics</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="selectedDegProg=='2'">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-type">Select Joint Major
+                                            Combination (Major 1/Major 2)</label>
+                                        <select class="form-control form-control-alternative">
+                                            <option>CMIS/ELTN</option>
+                                            <option>CMIS/MMST</option>
+                                            <option>CMIS/IMGT</option>
+                                            <option>ELTN/CMIS</option>
+                                            <option>ELTN/MMST</option>
+                                            <option>ELTN/IMGT</option>
+                                            <option>IMGT/ELTN</option>
+                                            <option>IMGT/MMST</option>
+                                            <option>IMGT/CMIS</option>
+                                            <option>MMST/CMIS</option>
+                                            <option>MMST/ELTN</option>
+                                            <option>MMST/IMGT</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary my-4" (click)="onNext();scroll()">
+                                    Next <i class="ni ni-bold-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- </div>
+            </div>
+        </div> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+
+                    <div class="container mt-5">
+
+                        <h2>Your course modules</h2>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <!-- <th>Program</th>
+                                    <th>Combination</th> -->
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let subject of subjects">
+                                    <td>{{ subject.code }}</td>
+                                    <td>{{ subject.name }}</td>
+                                    <td>{{ subject.level }}</td>
+                                    <!-- <td>{{ subject.program }}</td>
+                                    <td>{{ subject.combination }}</td> -->
+                                    <td><select [(ngModel)]="subject.grade" class="form-control form-control-alternative">
+                                            <option *ngFor="let grade of grade">{{grade}}</option>
+
+                                        </select></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div #target *ngIf="showGpa == true">
+                        <h1 text-align:center font-size:large>Your GPA is {{finalGpa}}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
