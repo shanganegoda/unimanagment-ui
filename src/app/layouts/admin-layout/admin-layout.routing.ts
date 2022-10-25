@@ -10,6 +10,7 @@ import { AttendanceComponent } from 'src/app/pages/attendance/attendance.compone
 import { QuizComponent } from 'src/app/pages/quiz/quiz.component';
 import { ShowquestionsComponent } from 'src/app/pages/showquestions/showquestions.component';
 import { FullquizComponent } from 'src/app/pages/fullquiz/fullquiz.component';
+import { AnswerquizComponent } from 'src/app/pages/answerquiz/answerquiz.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -22,5 +23,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'question',           component:QuizComponent},
     { path: 'question/:quizId',           component:QuizComponent},
     { path: 'questionlist',   component:ShowquestionsComponent},
-    { path: 'quiz',            component:FullquizComponent}
+    { path: 'quiz',            component:FullquizComponent},
+    { path: 'answer-quiz',            component:AnswerquizComponent}
 ];
