@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
@@ -19,6 +19,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'gpa',            component: GpaComponent },
+    { path: "view-results", component: GpaComponent },
     { path: 'attendance',     component:AttendanceComponent},
     { path: 'question',           component:QuizComponent},
     { path: 'question/:quizId',           component:QuizComponent},
