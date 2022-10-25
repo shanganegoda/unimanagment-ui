@@ -19,6 +19,8 @@ import { QuizComponent } from './pages/quiz/quiz.component';
 import { ShowquestionsComponent } from './pages/showquestions/showquestions.component';
 import { QuiznavComponent } from './pages/quiznav/quiznav.component';
 import { FullquizComponent } from './pages/fullquiz/fullquiz.component';
+import { AnswerquizComponent } from './pages/answerquiz/answerquiz.component';
+import { AnswerquestionsComponent } from './pages/answerquestions/answerquestions.component';
 
 
 
@@ -44,6 +46,8 @@ import { FullquizComponent } from './pages/fullquiz/fullquiz.component';
     ShowquestionsComponent,
     QuiznavComponent,
     FullquizComponent,
+    AnswerquizComponent,
+    AnswerquestionsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
