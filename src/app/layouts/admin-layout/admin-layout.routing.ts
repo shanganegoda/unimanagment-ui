@@ -21,6 +21,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gpa',            component: GpaComponent },
     { path: "view-results", component: GpaComponent },
     { path: 'attendance',     component:AttendanceComponent},
+    { path: 'view-attendance',     component:AttendanceComponent},
     { path: 'question',           component:QuizComponent},
     { path: 'question/:quizId',           component:QuizComponent},
     { path: 'questionlist',   component:ShowquestionsComponent},

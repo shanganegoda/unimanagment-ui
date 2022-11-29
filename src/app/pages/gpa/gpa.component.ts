@@ -104,10 +104,11 @@ export class GpaComponent implements OnInit {
   public ngOnInit(): void {
     if (this.router.url.includes("view-results")) {
       let studentId = 1;
+      this.displayView = true;
       this.gpaService.get(studentId).subscribe((g: any) => {
         this.subjects = g.gpaSubjects;
         this.finalGpa = g.score;
-        this.displayView = this.showGpa = true;
+        this.showGpa = true;
       });
     }
   }
