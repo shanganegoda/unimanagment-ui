@@ -6,6 +6,7 @@ declare interface RouteInfo {
   title: string;
   icon: string;
   class: string;
+  role: string;
 }
 export const ROUTES: RouteInfo[] = [
   {
@@ -13,46 +14,59 @@ export const ROUTES: RouteInfo[] = [
     title: "Dashboard",
     icon: "ni-tv-2 text-primary",
     class: "",
+    role: "",
   },
   {
     path: "/gpa",
     title: "GPA Calculator",
     icon: "ni-tv-2 text-primary",
     class: "",
+    role: "student",
   },
-  {
-    path: "/view-results",
-    title: "View Results",
-    icon: "ni-tv-2 text-primary",
-    class: "",
-  },
+  // {
+  //   path: "/view-results",
+  //   title: "View Results",
+  //   icon: "ni-tv-2 text-primary",
+  //   class: "",
+  //   role: "student",
+  // },
   {
     path: "/attendance",
     title: "Attendance",
     icon: "ni-circle-08 text-pink",
     class: "",
+    role: "lecturer",
   },
   {
     path: "/view-attendance",
     title: "View attendance",
     icon: "ni-circle-08 text-pink",
     class: "",
-  },
-  { path: "/quiz", title: "Quiz", icon: "ni-circle-08 text-pink", class: "" },
-  { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "" },
-  { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "" },
-  {
-    path: "/user-profile",
-    title: "User profile",
-    icon: "ni-single-02 text-yellow",
-    class: "",
+    role: "lecturer",
   },
   {
-    path: "/tables",
-    title: "Tables",
-    icon: "ni-bullet-list-67 text-red",
+    path: "/quiz",
+    title: "Quiz",
+    icon: "ni-circle-08 text-pink",
     class: "",
+    role: "lecturer",
   },
+  // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "", role: ""},
+  // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "", role: "" },
+  // {
+  //   path: "/user-profile",
+  //   title: "User profile",
+  //   icon: "ni-single-02 text-yellow",
+  //   class: "",
+  //   role: ""
+  // },
+  // {
+  //   path: "/tables",
+  //   title: "Tables",
+  //   icon: "ni-bullet-list-67 text-red",
+  //   class: "",
+  //   role: ""
+  // },
   // { path: "/login", title: "Login", icon: "ni-key-25 text-info", class: "" },
   // {
   //   path: "/register",
@@ -70,11 +84,23 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
+  user: any;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter((menuItem) => menuItem);
+    this.user = JSON.parse(localStorage.getItem("user"));
+
+    if (this.user.isLecturer) {
+      this.menuItems = ROUTES.filter(
+        (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
+      );
+    } else {
+      this.menuItems = ROUTES.filter(
+        (menuItem) => menuItem.role == "student" || menuItem.role == ""
+      );
+    }
+
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
     });

@@ -8,6 +8,7 @@ import { Subs } from "./Subs";
 interface GpaModel {
   gpaSubjects: Subs[];
   score: number;
+  studentId: number;
 }
 
 @Component({
@@ -29,6 +30,7 @@ export class GpaComponent implements OnInit {
   selectedDegProg: string = "";
   showGpa: boolean = false;
   displayView: boolean = false;
+  studentId: number;
 
   grade = [
     "A+",
@@ -102,18 +104,25 @@ export class GpaComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    if (this.router.url.includes("view-results")) {
-      let studentId = 1;
-      this.displayView = true;
-      this.gpaService.get(studentId).subscribe((g: any) => {
+    let user: any = JSON.parse(localStorage.getItem("user"));
+    this.studentId = user.studentId;
+    this.gpaService.get(this.studentId).subscribe((g: any) => {
+      if (g.hasCalculatedGPA) {
+        this.displayView = true;
         this.subjects = g.gpaSubjects;
         this.finalGpa = g.score;
         this.showGpa = true;
-      });
-    }
+      } else {
+        this.displayView = false;
+      }
+    });
   }
 
   onOptionsSelected() {
+    console.log(
+      "selectedAcYearId begin onOptionsSelected method ",
+      this.selectedAcYearId
+    );
     this.subjects = [];
 
     this.tempSubs.forEach((element) => {
@@ -131,9 +140,14 @@ export class GpaComponent implements OnInit {
         }
       }
     });
+    console.log(
+      "selectedAcYearId end onOptionsSelected method ",
+      this.selectedAcYearId
+    );
   }
 
   onAcademicYearSelected() {
+    console.log("selectedAcYearId begin method ", this.selectedAcYearId);
     this.subjects = [];
     this.tempSubs = [];
     this.http.get(this.url).subscribe((response: any) => {
@@ -150,6 +164,7 @@ export class GpaComponent implements OnInit {
         });
       }
     });
+    console.log("selectedAcYearId end method ", this.selectedAcYearId);
   }
 
   onNext() {
@@ -158,7 +173,7 @@ export class GpaComponent implements OnInit {
     this.totalCredit = 0;
 
     this.subjects.forEach((element) => {
-      element.studentId = 1;
+      element.studentId = this.studentId;
       switch (element.grade) {
         case "A+":
           this.gpaCredit = this.gpaCredit + 4 * element.credit;
@@ -229,6 +244,7 @@ export class GpaComponent implements OnInit {
     let gpaModel: GpaModel = {
       gpaSubjects: this.subjects,
       score: this.finalGpa,
+      studentId: this.studentId,
     };
 
     this.gpaService.post(gpaModel).subscribe((g) => console.log(g));
