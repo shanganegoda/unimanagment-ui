@@ -106,16 +106,26 @@ export class GpaComponent implements OnInit {
   public ngOnInit(): void {
     let user: any = JSON.parse(localStorage.getItem("user"));
     this.studentId = user.studentId;
-    this.gpaService.get(this.studentId).subscribe((g: any) => {
-      if (g.hasCalculatedGPA) {
-        this.displayView = true;
+
+    if (this.router.url.includes("view-results")) {
+      this.displayView = true;
+      this.gpaService.get(this.studentId).subscribe((g: any) => {
         this.subjects = g.gpaSubjects;
         this.finalGpa = g.score;
         this.showGpa = true;
-      } else {
-        this.displayView = false;
-      }
-    });
+      });
+    }
+
+    // this.gpaService.get(this.studentId).subscribe((g: any) => {
+    //   if (g.hasCalculatedGPA) {
+    //     this.displayView = true;
+    //     this.subjects = g.gpaSubjects;
+    //     this.finalGpa = g.score;
+    //     this.showGpa = true;
+    //   } else {
+    //     this.displayView = false;
+    //   }
+    // });
   }
 
   onOptionsSelected() {

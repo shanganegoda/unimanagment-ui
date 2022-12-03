@@ -23,13 +23,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     role: "student",
   },
-  // {
-  //   path: "/view-results",
-  //   title: "View Results",
-  //   icon: "ni-tv-2 text-primary",
-  //   class: "",
-  //   role: "student",
-  // },
+  {
+    path: "/view-results",
+    title: "View Results",
+    icon: "ni-tv-2 text-primary",
+    class: "",
+    role: "student",
+  },
   {
     path: "/attendance",
     title: "Attendance",
