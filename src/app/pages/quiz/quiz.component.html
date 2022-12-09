@@ -33,11 +33,21 @@
                     <input placeholder="Wrong Answer" [(ngModel)]="question.answer2" name="answer2" class="form-control">
                     
                     <input placeholder="Wrong Answer" [(ngModel)]="question.answer3" name="answer3" class="form-control">
-                    <button *ngIf="!question.id" class="btn btn-primary" (click)="post(question)">POST</button>
+                    <!-- <button *ngIf="!question.id" class="btn btn-primary" (click)="post(question)">POST</button>
                     <button *ngIf="question.id" class="btn btn-primary" (click)="put(question)">Edit</button>
-                    <button *ngIf="question.id" class="btn btn-primary" (click)="question = {}">Create New</button>
+                    <button *ngIf="question.id" class="btn btn-primary" (click)="question = {}">Create New</button> -->
                 </div>
+                <button class="btn btn-primary" (click)="put(question)">Add</button>
+                <!-- <div id="textboxes"></div>
+                <button (click)=”addNewDiv()”>Add New Div</button> -->
 
+                //Created a div for calling again and again.
+                <!-- <div *ngFor=”let new_div of newDivs;”>
+                
+                <p>This is a new Divisons</p>
+                
+                </div> -->
+                <!-- <button class="btn btn-success" (click)="addfield()" >Add New Fiels +</button> -->
             </div>
         </div>
     </div>

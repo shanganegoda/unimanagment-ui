@@ -49,7 +49,7 @@ export const ROUTES: RouteInfo[] = [
     title: "Quiz",
     icon: "ni-circle-08 text-pink",
     class: "",
-    role: "lecturer",
+    role: "",
   },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "", role: ""},
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "", role: "" },
@@ -90,16 +90,16 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
-
-    if (this.user.isLecturer) {
-      this.menuItems = ROUTES.filter(
-        (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
-      );
-    } else {
-      this.menuItems = ROUTES.filter(
-        (menuItem) => menuItem.role == "student" || menuItem.role == ""
-      );
-    }
+this.menuItems=ROUTES;
+    // if (this.user.isLecturer) {
+    //   this.menuItems = ROUTES.filter(
+    //     (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
+    //   );
+    // } else {
+    //   this.menuItems = ROUTES.filter(
+    //     (menuItem) => menuItem.role == "student" || menuItem.role == ""
+    //   );
+    // }
 
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
