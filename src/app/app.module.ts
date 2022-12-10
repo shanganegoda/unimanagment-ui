@@ -21,6 +21,8 @@ import { QuiznavComponent } from './pages/quiznav/quiznav.component';
 import { FullquizComponent } from './pages/fullquiz/fullquiz.component';
 import { AnswerquizComponent } from './pages/answerquiz/answerquiz.component';
 import { AnswerquestionsComponent } from './pages/answerquestions/answerquestions.component';
+import { StudentAnswerQuestionsComponent } from './pages/Student/student-answer-questions/student-answer-questions.component';
+import { StudentAnswerQuizComponent } from './pages/Student/student-answer-quiz/student-answer-quiz.component';
 
 
 
@@ -48,6 +50,8 @@ import { AnswerquestionsComponent } from './pages/answerquestions/answerquestion
     FullquizComponent,
     AnswerquizComponent,
     AnswerquestionsComponent,
+        StudentAnswerQuestionsComponent,
+    StudentAnswerQuizComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
