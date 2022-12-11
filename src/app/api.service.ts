@@ -65,4 +65,23 @@ export class ApiService {
         console.log(res);
       });
   }
+  getStudentById(studentId){
+    this.http
+    .get(`${environment.base}Students/${studentId}`)
+    .subscribe((res) => {
+      console.log(res);
+    });
+  }
+  getAnswerQuesstions(){
+    this.http
+    .get(`${environment.base}StudentQuestions`)
+    .subscribe((res) => {
+      console.log(res);
+    });
+  }
+  postStudentQuestions(StudentQuestion) {
+    this.http.post(`${environment.base}StudentQuestions`, StudentQuestion).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

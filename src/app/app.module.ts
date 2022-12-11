@@ -23,6 +23,7 @@ import { AnswerquizComponent } from './pages/answerquiz/answerquiz.component';
 import { AnswerquestionsComponent } from './pages/answerquestions/answerquestions.component';
 import { StudentAnswerQuestionsComponent } from './pages/Student/student-answer-questions/student-answer-questions.component';
 import { StudentAnswerQuizComponent } from './pages/Student/student-answer-quiz/student-answer-quiz.component';
+import { StudentAnswersComponent } from './pages/student-answers/student-answers.component';
 
 
 
@@ -52,6 +53,7 @@ import { StudentAnswerQuizComponent } from './pages/Student/student-answer-quiz/
     AnswerquestionsComponent,
         StudentAnswerQuestionsComponent,
     StudentAnswerQuizComponent,
+    StudentAnswersComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
