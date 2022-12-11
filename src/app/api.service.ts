@@ -18,12 +18,9 @@ export class ApiService {
   quizSelected = this.selectedQuiz.asObservable();
 
   constructor(private http: HttpClient) {}
+
   post(question) {
-    this.http
-      .post(`${environment.base}questions`, question)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.http.post(`${environment.base}questions`, question);
   }
 
   getQuestions(quizId) {
@@ -32,20 +29,21 @@ export class ApiService {
 
   selectQuestion(question) {
     this.selectedQuestion.next(question);
-    console.log(this.questionSelected);
   }
 
   selectQuiz(quiz) {
     this.selectedQuiz.next(quiz);
-    console.log(this.quizSelected);
   }
 
   putQuestion(question) {
-    this.http
-      .put(`${environment.base}questions/${question.id}`, question)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.http.put(
+      `${environment.base}questions/${question.id}`,
+      question
+    );
+  }
+
+  deleteQuestion(questionId) {
+    return this.http.delete(`${environment.base}questions/${questionId}`);
   }
 
   getQuiz() {
@@ -53,16 +51,14 @@ export class ApiService {
   }
 
   postQuiz(quiz) {
-    this.http.post(`${environment.base}Quizzes`, quiz).subscribe((res) => {
-      console.log(res);
-    });
+    return this.http.post(`${environment.base}Quizzes`, quiz);
   }
 
   putQuiz(quiz) {
-    this.http
-      .put(`${environment.base}Quizzes/${quiz.id}`, quiz)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    return this.http.put(`${environment.base}Quizzes/${quiz.id}`, quiz);
+  }
+
+  deleteQuiz(quizId) {
+    return this.http.delete(`${environment.base}Quizzes/${quizId}`);
   }
 }

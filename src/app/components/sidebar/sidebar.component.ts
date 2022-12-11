@@ -91,15 +91,17 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
 
-    if (this.user.isLecturer) {
-      this.menuItems = ROUTES.filter(
-        (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
-      );
-    } else {
-      this.menuItems = ROUTES.filter(
-        (menuItem) => menuItem.role == "student" || menuItem.role == ""
-      );
-    }
+    this.menuItems = ROUTES;
+
+    // if (this.user.isLecturer) {
+    //   this.menuItems = ROUTES.filter(
+    //     (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
+    //   );
+    // } else {
+    //   this.menuItems = ROUTES.filter(
+    //     (menuItem) => menuItem.role == "student" || menuItem.role == ""
+    //   );
+    // }
 
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;

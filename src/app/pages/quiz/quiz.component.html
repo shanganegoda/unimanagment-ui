@@ -1,46 +1,241 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-        <div class="header-body">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="table-responsive">
+    <div class="col-xl-11 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Quiz Portal</h3>
+            </div>
+          </div>
         </div>
+
+        <div class="card-body">
+          <form>
+            <div class="pl-lg-4">
+              <div *ngIf="isListView" class="container">
+                <h2>Questions List</h2>
+
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      id="createBtn"
+                      class="btn btn-primary my-4"
+                      (click)="changeView()"
+                    >
+                      Create Question
+                    </button>
+                  </div>
+                </div>
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Manage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let question of questions">
+                      <td>{{ question.text }}</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="edit(question)"
+                        >
+                          Edit
+                        </button>
+                        <!-- <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="view(question.id)"
+                        >
+                          View
+                        </button> -->
+                        <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="delete(question.id)"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div *ngIf="!isListView" class="container">
+                <h2 *ngIf="!isEditMode">Create new question</h2>
+                <h2 *ngIf="isEditMode">Edit question</h2>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group create-form">
+                      <label class="form-control-label" for="input-type"
+                        >Question Name</label
+                      >
+                      <input
+                        [(ngModel)]="question.text"
+                        placeholder="Question"
+                        name="question"
+                        class="form-control"
+                      />
+                      <label class="form-control-label" for="input-type"
+                        >Correct Answer</label
+                      >
+                      <input
+                        placeholder="Correct Answer"
+                        [(ngModel)]="question.correctAnswer"
+                        name="correctAnswer"
+                        class="form-control"
+                      />
+                      <label class="form-control-label" for="input-type"
+                        >Wrong Answer</label
+                      >
+                      <input
+                        placeholder="Wrong Answer"
+                        [(ngModel)]="question.answer1"
+                        name="answer1"
+                        class="form-control"
+                      />
+                      <label class="form-control-label" for="input-type"
+                        >Wrong Answer</label
+                      >
+                      <input
+                        placeholder="Wrong Answer"
+                        [(ngModel)]="question.answer2"
+                        name="answer2"
+                        class="form-control"
+                      />
+                      <label class="form-control-label" for="input-type"
+                        >Wrong Answer</label
+                      >
+                      <input
+                        placeholder="Wrong Answer"
+                        [(ngModel)]="question.answer3"
+                        name="answer3"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!isListView" class="form-group">
+                  <button
+                    type="button"
+                    class="btn btn-primary my-4"
+                    (click)="save(question)"
+                  >
+                    Save <i class="ni ni-bold-right"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-default my-4"
+                    (click)="changeView()"
+                  >
+                    Back <i class="ni ni-bold-left"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
 </div>
 <div>
-<app-quiznav></app-quiznav>
+  <app-quiznav></app-quiznav>
 </div>
 <div class="table-responsive">
-    <div class="col-xl-8 order-xl-1">
-        <div class="testcenter">
-            <div class="card bg-secondary shadow">
-                <div class="card-header bg-white border-0">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 *ngIf="!question.id" class="mb-0">New Question</h3>
-                                <h3 *ngIf="question.id" class="mb-0">Edit Question</h3>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label  class="form-control-label">Question - {{question.text}}</label>
-                    <input [(ngModel)]="question.text" placeholder="Question" name="question" class="form-control">
-                    <input placeholder="Correct Answer" [(ngModel)]="question.correctAnswer" name="correctAnswer" class="form-control">
-                    
-                    <input placeholder="Wrong answer" [(ngModel)]="question.answer1" name="answer1" class="form-control">
-                    
-                    <input placeholder="Wrong Answer" [(ngModel)]="question.answer2" name="answer2" class="form-control">
-                    
-                    <input placeholder="Wrong Answer" [(ngModel)]="question.answer3" name="answer3" class="form-control">
-                    <button *ngIf="!question.id" class="btn btn-primary" (click)="post(question)">POST</button>
-                    <button *ngIf="question.id" class="btn btn-primary" (click)="put(question)">Edit</button>
-                    <button *ngIf="question.id" class="btn btn-primary" (click)="question = {}">Create New</button>
-                </div>
-
+  <div class="col-xl-8 order-xl-1">
+    <div class="testcenter">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 *ngIf="!question.id" class="mb-0">New Question</h3>
+                <h3 *ngIf="question.id" class="mb-0">Edit Question</h3>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
 
-<app-showquestions></app-showquestions>
+        <div class="form-group">
+          <label class="form-control-label"
+            >Question - {{ question.text }}</label
+          >
+          <input
+            [(ngModel)]="question.text"
+            placeholder="Question"
+            name="question"
+            class="form-control"
+          />
+          <input
+            placeholder="Correct Answer"
+            [(ngModel)]="question.correctAnswer"
+            name="correctAnswer"
+            class="form-control"
+          />
+
+          <input
+            placeholder="Wrong answer"
+            [(ngModel)]="question.answer1"
+            name="answer1"
+            class="form-control"
+          />
+
+          <input
+            placeholder="Wrong Answer"
+            [(ngModel)]="question.answer2"
+            name="answer2"
+            class="form-control"
+          />
+
+          <input
+            placeholder="Wrong Answer"
+            [(ngModel)]="question.answer3"
+            name="answer3"
+            class="form-control"
+          />
+          <button
+            *ngIf="!question.id"
+            class="btn btn-primary"
+            (click)="post(question)"
+          >
+            POST
+          </button>
+          <button
+            *ngIf="question.id"
+            class="btn btn-primary"
+            (click)="put(question)"
+          >
+            Edit
+          </button>
+          <button
+            *ngIf="question.id"
+            class="btn btn-primary"
+            (click)="question = {}"
+          >
+            Create New
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-showquestions></app-showquestions> -->
