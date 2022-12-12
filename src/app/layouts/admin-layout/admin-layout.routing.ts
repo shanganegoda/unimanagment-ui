@@ -13,6 +13,7 @@ import { FullquizComponent } from 'src/app/pages/fullquiz/fullquiz.component';
 import { AnswerquizComponent } from 'src/app/pages/answerquiz/answerquiz.component';
 import { StudentAnswerQuizComponent } from "src/app/pages/Student/student-answer-quiz/student-answer-quiz.component";
 import { StudentAnswerQuestionsComponent } from "src/app/pages/Student/student-answer-questions/student-answer-questions.component";
+import { StudentAnswersComponent } from "src/app/pages/student-answers/student-answers.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -30,7 +31,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'quiz',            component:FullquizComponent},
     { path: 'answer-quiz',            component:AnswerquizComponent},
     { path: 'studentAnswerQuiz',            component:StudentAnswerQuizComponent},
-    { path: 'studentAnswerQuestions/:quizId',            component:StudentAnswerQuestionsComponent}
+    { path: 'studentAnswerQuestions/:quizId',            component:StudentAnswerQuestionsComponent},
+    { path: 'studentAnswers',            component:StudentAnswersComponent}
 
 
 ];

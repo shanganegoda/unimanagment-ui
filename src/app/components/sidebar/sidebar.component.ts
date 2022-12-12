@@ -65,6 +65,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     role: "lecturer",
   },
+  {
+    path: "/studentAnswers",
+    title: "Student Answers",
+    icon: "ni-circle-08 text-pink",
+    class: "",
+    role: "lecturer",
+  },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "", role: ""},
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "", role: "" },
   // {
