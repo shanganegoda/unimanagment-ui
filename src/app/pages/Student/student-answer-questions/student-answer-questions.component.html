@@ -29,26 +29,26 @@
                                                     <label class="form-control-label">Question -
                                                         {{question.text}}</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,0)"
                                                             name="{{question.text}}" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             {{question.correctAnswer}}
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,1)"
                                                             name="{{question.text}}" id="flexRadioDefault2" checked>
                                                         <label class="form-check-label" for="flexRadioDefault2">
                                                             {{question.answer1}} </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,2)"
                                                             name="{{question.text}}" id="flexRadioDefault3" checked>
                                                         <label class="form-check-label" for="flexRadioDefault3">
                                                             {{question.answer2}} </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,3)"
                                                             name="{{question.text}}" id="flexRadioDefault4" checked>
                                                         <label class="form-check-label" for="flexRadioDefault4">
                                                             {{question.answer3}} </label>
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" >Submit</button>
+                        <button class="btn btn-primary"  (click)="saveAnswers()" >Submit</button>
                     </form>
                 </div>
             </div>
