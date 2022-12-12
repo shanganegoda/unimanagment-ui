@@ -24,6 +24,7 @@ import { AnswerquestionsComponent } from './pages/answerquestions/answerquestion
 import { StudentAnswerQuestionsComponent } from './pages/Student/student-answer-questions/student-answer-questions.component';
 import { StudentAnswerQuizComponent } from './pages/Student/student-answer-quiz/student-answer-quiz.component';
 import { StudentAnswersComponent } from './pages/student-answers/student-answers.component';
+import { StudentAnsweredQuestionsComponent } from './pages/student-answered-questions/student-answered-questions.component';
 
 
 
@@ -54,6 +55,7 @@ import { StudentAnswersComponent } from './pages/student-answers/student-answers
         StudentAnswerQuestionsComponent,
     StudentAnswerQuizComponent,
     StudentAnswersComponent,
+    StudentAnsweredQuestionsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

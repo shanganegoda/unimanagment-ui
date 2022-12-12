@@ -84,4 +84,8 @@ export class ApiService {
       console.log(res);
     });
   }
+  GetStudentQuestions(studentId:number,quizId:number){
+    return this.http.get(`${environment.base}StudentQuestions/quiz/${studentId}/${quizId}`)
+   
+  }
 }
