@@ -1,47 +1,192 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-        <div class="header-body">
-        </div>
-    </div>
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
 </div>
-<div>
-
-</div>
-<div class="table-responsive">
-    <div class="col-xl-8 order-xl-1">
-        <div class="testcenter">
-            <div class="card bg-secondary shadow">
-                <div class="card-header bg-white border-0">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 *ngIf="!quiz.id" class="mb-0">New Quiz</h3>
-                                <h3 *ngIf="quiz.id" class="mb-0">Edit Quiz</h3>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label  class="form-control-label">Quiz - {{quiz.title}}</label>
-                    <input [(ngModel)]="quiz.title" placeholder="Quiz title" name="title" class="form-control">
-                    <br>
-                    <button *ngIf="!quiz.id" class="btn btn-primary" (click)="postQuiz(quiz)">Create</button>
-                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="putQuiz(quiz)">Edit</button>
-                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="quiz = {}">Create New</button>
-                    <button *ngIf="quiz.id" class="btn btn-primary" (click)="getQuestionList(quiz.id)">Edit questions</button>
-
-                </div>
-
-                <div>
-                    <ul *ngFor="let quiz of quizzes">
-                    <li (click)="api.selectQuiz(quiz) ;scrollTop()" class="list-group-item" >{{quiz.title}}</li>
-                </ul>
-                </div>
-
+<div class="container-fluid mt--7">
+  <div class="table-responsive">
+    <div class="col-xl-11 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Quiz Portal</h3>
             </div>
+          </div>
         </div>
+
+        <div class="card-body">
+          <form>
+            <div class="pl-lg-4">
+              <div *ngIf="isListView" class="container">
+                <h2>Quiz List</h2>
+
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      id="createBtn"
+                      class="btn btn-primary my-4"
+                      (click)="changeView()"
+                    >
+                      Create Quiz
+                    </button>
+                  </div>
+                </div>
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Subject Code</th>
+                      <th>Submission Date</th>
+                      <th>Manage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let quiz of quizzes">
+                      <td>{{ quiz.title }}</td>
+                      <td>CMIS-0001</td>
+                      <td>10 Jan 2023</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="editQuiz(quiz)"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="getQuestionList(quiz.id)"
+                        >
+                          View
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary my-4"
+                          (click)="deleteQuiz(quiz.id)"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div *ngIf="!isListView" class="container">
+                <h2 *ngIf="!isEditMode">Create new quiz</h2>
+                <h2 *ngIf="isEditMode">Edit quiz</h2>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group create-form">
+                      <label class="form-control-label" for="input-type"
+                        >Quiz Name</label
+                      >
+                      <input
+                        [(ngModel)]="quiz.title"
+                        placeholder="Quiz Title"
+                        name="title"
+                        class="form-control form-control-alternative"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!isListView" class="form-group">
+                  <button
+                    type="button"
+                    class="btn btn-primary my-4"
+                    (click)="save(quiz)"
+                  >
+                    Save <i class="ni ni-bold-right"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-default my-4"
+                    (click)="changeView()"
+                  >
+                    Back <i class="ni ni-bold-left"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
+<!-- <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
+</div>
+<div></div>
+<div class="table-responsive">
+  <div class="col-xl-8 order-xl-1">
+    <div class="testcenter">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 *ngIf="!quiz.id" class="mb-0">New Quiz</h3>
+                <h3 *ngIf="quiz.id" class="mb-0">Edit Quiz</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label">Quiz - {{ quiz.title }}</label>
+          <input
+            [(ngModel)]="quiz.title"
+            placeholder="Quiz title"
+            name="title"
+            class="form-control"
+          />
+          <br />
+          <button
+            *ngIf="!quiz.id"
+            class="btn btn-primary"
+            (click)="postQuiz(quiz)"
+          >
+            Create
+          </button>
+          <button
+            *ngIf="quiz.id"
+            class="btn btn-primary"
+            (click)="putQuiz(quiz)"
+          >
+            Edit
+          </button>
+          <button *ngIf="quiz.id" class="btn btn-primary" (click)="quiz = {}">
+            Create New
+          </button>
+          <button
+            *ngIf="quiz.id"
+            class="btn btn-primary"
+            (click)="getQuestionList(quiz.id)"
+          >
+            Edit questions
+          </button>
+        </div>
+
+        <div>
+          <ul *ngFor="let quiz of quizzes">
+            <li
+              (click)="api.selectQuiz(quiz); scrollTop()"
+              class="list-group-item"
+            >
+              {{ quiz.title }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

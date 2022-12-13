@@ -113,6 +113,8 @@ export class SidebarComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.menuItems=ROUTES;
 
+    this.menuItems = ROUTES;
+
     // if (this.user.isLecturer) {
     //   this.menuItems = ROUTES.filter(
     //     (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
