@@ -84,4 +84,12 @@ export class ApiService {
     return this.http.get(`${environment.base}StudentQuestions/quiz/${studentId}/${quizId}`)
    
   }
+  GetStudentQuestionsByQuizId(quizId:number){
+    return this.http.get(`${environment.base}StudentQuestions/quiz/${quizId}`)
+   
+  }
+  GetStudent(studentId:number){
+    return this.http.get(`${environment.base}Students/${studentId}`)
+   
+  }
 }
