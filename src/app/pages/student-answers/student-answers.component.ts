@@ -27,5 +27,5 @@ getAnswers():void{
     this.studentquizess=q;
 console.log(q);  })
 }
-
+//question list->get questionbyid ->assign answers
 }
