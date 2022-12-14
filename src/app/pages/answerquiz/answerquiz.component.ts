@@ -8,24 +8,32 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./answerquiz.component.scss']
 })
 export class AnswerquizComponent implements OnInit {
-  quizzes : any = {}
-  constructor(public api: ApiService , public router: Router) { }
+  quizzes: any = {}
+
+  student: any = {}
+  studentquizess: any = {}
+  isStudentAttemptedQuiz: boolean = false;
+  constructor(public api: ApiService, public router: Router) { }
 
   ngOnInit(): void {
-     this.api.getQuiz().subscribe(q => {
+    this.student = JSON.parse(localStorage.getItem("user"));
+
+    this.api.getQuiz().subscribe(q => {
       this.quizzes = q
     })
   }
 
-  getQuestionList(quizId){
+  getQuestionList(quizId) {
     this.router.navigateByUrl(`/question/${quizId}`)
     console.log(quizId)
   }
 
-  scrollTop(){
+  scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  } 
+  }
+  getAnswers(quizId): void {
 
+  }
 
 
 }

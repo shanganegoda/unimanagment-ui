@@ -22,12 +22,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <ul *ngFor="let quiz of quizzes">
-                                            <li (click)="api.selectQuiz(quiz) ;scrollTop()" class="list-group-item">
-                                                {{quiz.title}}</li>
-                                            <button class="btn btn-primary" (click)="getQuestionList(quiz.id)">Attempt
-                                                Quiz</button>
-                                        </ul>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Quiz</th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let quiz of quizzes">
+                                                    <td> {{quiz.title}}</td>
+                                                    <td> <button class="btn btn-primary"
+                                                            (click)="getQuestionList(quiz.id)">Attempt
+                                                            Quiz</button></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

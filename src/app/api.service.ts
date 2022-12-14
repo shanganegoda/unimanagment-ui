@@ -17,7 +17,7 @@ export class ApiService {
   private selectedQuiz = new Subject<any>();
   quizSelected = this.selectedQuiz.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   post(question) {
     return this.http.post(`${environment.base}questions`, question);
@@ -61,35 +61,39 @@ export class ApiService {
   deleteQuiz(quizId) {
     return this.http.delete(`${environment.base}Quizzes/${quizId}`);
   }
-  getStudentById(studentId){
+  getStudentById(studentId) {
     this.http
-    .get(`${environment.base}Students/${studentId}`)
-    .subscribe((res) => {
-      console.log(res);
-    });
+      .get(`${environment.base}Students/${studentId}`)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
-  getAnswerQuesstions(){
+  getAnswerQuesstions() {
     this.http
-    .get(`${environment.base}StudentQuestions`)
-    .subscribe((res) => {
-      console.log(res);
-    });
+      .get(`${environment.base}StudentQuestions`)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
   postStudentQuestions(StudentQuestion) {
     this.http.post(`${environment.base}StudentQuestions`, StudentQuestion).subscribe((res) => {
       console.log(res);
     });
   }
-  GetStudentQuestions(studentId:number,quizId:number){
+  GetStudentQuestions(studentId: number, quizId: number) {
     return this.http.get(`${environment.base}StudentQuestions/quiz/${studentId}/${quizId}`)
-   
+
   }
-  GetStudentQuestionsByQuizId(quizId:number){
+  GetStudentQuestionsByQuizId(quizId: number) {
     return this.http.get(`${environment.base}StudentQuestions/quiz/${quizId}`)
-   
+
   }
-  GetStudent(studentId:number){
+  GetStudent(studentId: number) {
     return this.http.get(`${environment.base}Students/${studentId}`)
-   
+
+  }
+  GetStudentResults(studentId: number, quizId: number) {
+    return this.http.get(`${environment.base}StudentQuestions/results/${studentId}/${quizId}`)
+
   }
 }
