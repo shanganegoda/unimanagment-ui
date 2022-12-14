@@ -49,7 +49,7 @@ export const ROUTES: RouteInfo[] = [
     title: "Quiz",
     icon: "ni-circle-08 text-pink",
     class: "",
-    role: "lecturer",
+    role: "",
   },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "", role: ""},
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "", role: "" },

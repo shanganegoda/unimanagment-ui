@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, Renderer2 } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiService } from "src/app/api.service";
 import { ShowquestionsComponent } from "../showquestions/showquestions.component";
@@ -16,8 +16,15 @@ export class QuizComponent implements OnInit {
   quizId: any;
   isListView: boolean = true;
   isEditMode: boolean = false;
+  // Defining the adding div of array type
+  newDivs: addDivisions[] = [];
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(
+    private api: ApiService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {}
 
   ngOnInit(): void {
     this.quizId = this.route.snapshot.paramMap.get("quizId");
@@ -67,6 +74,31 @@ export class QuizComponent implements OnInit {
   changeView() {
     this.isListView = !this.isListView;
   }
+  addfield() {
+    console.log("function triggered");
+    const div = this.renderer.createElement("div");
+    const input = this.renderer.createElement("input");
+
+    this.renderer.appendChild(div, input);
+
+    this.renderer.addClass(div, "col-md-6");
+    this.renderer.addClass(div, "col-sm-6");
+    this.renderer.addClass(div, "col-xs-12");
+
+    console.log("cross passes the code");
+    this.renderer.addClass(input, "form-control");
+    this.renderer.addClass(input, "col-md-7");
+    this.renderer.addClass(input, "col-xs-12");
+
+    const textboxes = document.getElementById("textboxes");
+
+    this.renderer.appendChild(textboxes, div);
+  }
+
+  // function for adding div
+  addNewDiv() {
+    this.newDivs.push(new addDivisions());
+  }
 
   view() {}
 
@@ -82,3 +114,6 @@ export class QuizComponent implements OnInit {
     });
   }
 }
+
+// Here you can define the elements
+export class addDivisions {}
