@@ -22,6 +22,7 @@ export class StudentAnswersComponent implements OnInit {
   constructor(public api: ApiService, public router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.quizId = this.route.snapshot.paramMap.get("quizId")
+
     this.api.getQuestions(this.quizId).subscribe(res => {
       this.questions = res
     })
@@ -57,8 +58,6 @@ export class StudentAnswersComponent implements OnInit {
   }
 
   getQuestionPaper(studentId) {
-    console.log(studentId + "sadsd" + this.quizId);
     this.router.navigateByUrl(`/studentAnswerQuestions/${this.quizId}/${studentId}`)
   }
-  //question list->get questionbyid ->assign answers
 }

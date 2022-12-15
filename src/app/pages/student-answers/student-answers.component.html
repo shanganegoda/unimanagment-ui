@@ -32,10 +32,9 @@
                                             <tbody>
                                                 <tr *ngFor="let student of students">
                                                     <td>{{student.name}}</td>
-                                                    <td>  <button class="btn btn-primary" (click)="getQuestionPaper(student.id)">View
-                                                        Answers</button></td>
-                                                   
-
+                                                    <td> <button class="btn btn-primary"
+                                                            (click)="getQuestionPaper(student.id)">View
+                                                            Answers</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -44,7 +43,6 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

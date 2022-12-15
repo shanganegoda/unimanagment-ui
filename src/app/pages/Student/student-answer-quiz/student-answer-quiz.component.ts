@@ -8,16 +8,31 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./student-answer-quiz.component.scss']
 })
 export class StudentAnswerQuizComponent implements OnInit {
+  quizzes: any = {}
 
-  quizzes : any = {}
-  constructor(public api: ApiService , public router: Router) { }
+  student: any = {}
+  studentquizess: any = {}
+  isStudentAttemptedQuiz: boolean = false;
+  constructor(public api: ApiService, public router: Router) { }
+
   ngOnInit(): void {
+    this.student = JSON.parse(localStorage.getItem("user"));
     this.api.getQuiz().subscribe(q => {
       this.quizzes = q
     })
   }
-  getQuestionList(quizId){
-    this.router.navigateByUrl(`/studentAnswerQuestions/${quizId}`)
+
+  getQuestionList(quizId) {
+    this.api.GetStudentQuestions(this.student.id, quizId).subscribe(q => {
+      this.studentquizess = q;
+      if (this.studentquizess.length > 0) {
+        this.router.navigateByUrl(`/studentAnswerQuestions/${quizId}/${this.student.id}`)
+      }
+      else {
+        this.router.navigateByUrl(`/studentAnswerQuestions/${quizId}`)
+      }
+      console.log(this.isStudentAttemptedQuiz);
+    })
     console.log(quizId)
   }
 

@@ -51,13 +51,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     role: "",
   },
-  {
-    path: "/answer-quiz",
-    title: "answer",
-    icon: "ni-circle-08 text-pink",
-    class: "",
-    role: "lecturer",
-  },
+  // {
+  //   path: "/answer-quiz",
+  //   title: "answer",
+  //   icon: "ni-circle-08 text-pink",
+  //   class: "",
+  //   role: "lecturer",
+  // },
   {
     path: "/studentAnswerQuiz",
     title: "Answer Quiz",
@@ -65,13 +65,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     role: "lecturer",
   },
-  {
-    path: "/studentAnswers",
-    title: "Student Answers",
-    icon: "ni-circle-08 text-pink",
-    class: "",
-    role: "lecturer",
-  },
+  // {
+  //   path: "/studentAnswers",
+  //   title: "Student Answers",
+  //   icon: "ni-circle-08 text-pink",
+  //   class: "",
+  //   role: "lecturer",
+  // },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "", role: ""},
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "", role: "" },
   // {
@@ -107,11 +107,11 @@ export class SidebarComponent implements OnInit {
   public isCollapsed = true;
   user: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
-    this.menuItems=ROUTES;
+    this.menuItems = ROUTES;
 
     this.menuItems = ROUTES;
 

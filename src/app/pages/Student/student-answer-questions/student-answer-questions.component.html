@@ -29,39 +29,51 @@
                                                     <label class="form-control-label">Question -
                                                         {{question.text}}</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,0)"
-                                                            name="{{question.text}}" id="flexRadioDefault1" checked>
+                                                        <input class="form-check-input" type="radio"
+                                                            (click)="setradio(question.id,0,question.correctAnswer,true)"
+                                                            name="{{question.text}}" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             {{question.correctAnswer}}
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,1)"
-                                                            name="{{question.text}}" id="flexRadioDefault2" checked>
+                                                        <input class="form-check-input" type="radio"
+                                                            (click)="setradio(question.id,1,question.answer1,false)"
+                                                            name="{{question.text}}" id="flexRadioDefault2">
                                                         <label class="form-check-label" for="flexRadioDefault2">
                                                             {{question.answer1}} </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,2)"
-                                                            name="{{question.text}}" id="flexRadioDefault3" checked>
+                                                        <input class="form-check-input" type="radio"
+                                                            (click)="setradio(question.id,2,question.answer2,false)"
+                                                            name="{{question.text}}" id="flexRadioDefault3">
                                                         <label class="form-check-label" for="flexRadioDefault3">
                                                             {{question.answer2}} </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" (click)="setradio(question.id,3)"
-                                                            name="{{question.text}}" id="flexRadioDefault4" checked>
+                                                        <input class="form-check-input" type="radio"
+                                                            (click)="setradio(question.id,3,question.answer3,false)"
+                                                            name="{{question.text}}" id="flexRadioDefault4">
                                                         <label class="form-check-label" for="flexRadioDefault4">
                                                             {{question.answer3}} </label>
                                                     </div>
                                                     <br />
                                                 </ul>
+                                                <div *ngIf="isSubmitDisabled" class="alert alert-primary" role="alert">
+                                                    <b>Score: {{this.studentMarks}}%</b>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary"  (click)="saveAnswers()" >Submit</button>
+                        <button *ngIf="!isStudentAttemptedQuiz" class="btn btn-primary" [disabled]="isSubmitDisabled"
+                            (click)="saveAnswers()">Submit</button>
+                        <!-- <div *ngIf="isStudentAttemptedQuiz" class="alert alert-info" role="alert">
+                            You have already attempted the quiz!
+                          </div> -->
+
                     </form>
                 </div>
             </div>

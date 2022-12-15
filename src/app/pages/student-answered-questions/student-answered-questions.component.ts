@@ -17,32 +17,27 @@ export class StudentAnsweredQuestionsComponent implements OnInit {
   quizId: any;
   studentId: any;
   questions: any = {};
+  CorrectAnswers: any = {};
+  QuestionCount: any = {};
+  studentMarks: any = {};
 
   ngOnInit(): void {
     this.quizId = this.route.snapshot.paramMap.get("quizId");
     this.studentId = this.route.snapshot.paramMap.get("studentId");
-    this.api.getQuestions(this.quizId).subscribe((res) => {
-      this.questions = res;
-    });
+
     this.getAnswers();
-    //this.assignCorrectAnswers();
   }
 
   getAnswers(): void {
-    this.api.GetStudentQuestions(this.studentId, this.quizId).subscribe((q) => {
-      this.studentquizess = q;
-      console.log(q);
-    });
-  }
-
-  async assignCorrectAnswers() {
-    this.questions.forEach((element) => {
-      var t = this.studentquizess.find((x) => x.questionId == element.Id);
-      console.log("assignCorrectAnswers" + t);
-
-      //ToDo:assign questions[0].correctAnswer to studentquizess[0].AnswerID
-      // In HTML bind [checked]="isChecked" to [checked]="question.correctAnswer==0",
-      //1,2,3 so on 0,1,2,3 act as enum 0 means correct answer
+    this.api.GetStudentResults(this.studentId, this.quizId).subscribe((q) => {
+      this.questions = q;
+      this.QuestionCount = this.questions.length;
+      this.CorrectAnswers = this.questions.filter(
+        (x) => x.isCorrectAnswer == true
+      );
+      this.studentMarks = Math.floor(
+        (this.CorrectAnswers.length / this.QuestionCount) * 100
+      );
     });
   }
 }
