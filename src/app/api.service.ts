@@ -61,35 +61,34 @@ export class ApiService {
   deleteQuiz(quizId) {
     return this.http.delete(`${environment.base}Quizzes/${quizId}`);
   }
-  getStudentById(studentId){
+  getStudentById(studentId) {
     this.http
-    .get(`${environment.base}Students/${studentId}`)
-    .subscribe((res) => {
+      .get(`${environment.base}Students/${studentId}`)
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
+  getAnswerQuesstions() {
+    this.http.get(`${environment.base}StudentQuestions`).subscribe((res) => {
       console.log(res);
     });
   }
-  getAnswerQuesstions(){
-    this.http
-    .get(`${environment.base}StudentQuestions`)
-    .subscribe((res) => {
-      console.log(res);
-    });
-  }
+
   postStudentQuestions(StudentQuestion) {
-    this.http.post(`${environment.base}StudentQuestions`, StudentQuestion).subscribe((res) => {
-      console.log(res);
-    });
+    return this.http.post(
+      `${environment.base}StudentQuestions`,
+      StudentQuestion
+    );
   }
-  GetStudentQuestions(studentId:number,quizId:number){
-    return this.http.get(`${environment.base}StudentQuestions/quiz/${studentId}/${quizId}`)
-   
+  GetStudentQuestions(studentId: number, quizId: number) {
+    return this.http.get(
+      `${environment.base}StudentQuestions/quiz/${studentId}/${quizId}`
+    );
   }
-  GetStudentQuestionsByQuizId(quizId:number){
-    return this.http.get(`${environment.base}StudentQuestions/quiz/${quizId}`)
-   
+  GetStudentQuestionsByQuizId(quizId: number) {
+    return this.http.get(`${environment.base}StudentQuestions/quiz/${quizId}`);
   }
-  GetStudent(studentId:number){
-    return this.http.get(`${environment.base}Students/${studentId}`)
-   
+  GetStudent(studentId: number) {
+    return this.http.get(`${environment.base}Students/${studentId}`);
   }
 }

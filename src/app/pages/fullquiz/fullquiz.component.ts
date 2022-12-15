@@ -82,6 +82,7 @@ export class FullquizComponent implements OnInit {
     this.isEditMode = true;
     this.isListView = false;
   }
+
   viewQuizAnswers(quizId) {
     this.router.navigateByUrl(`/studentAnswers/${quizId}`);
     console.log(quizId);
