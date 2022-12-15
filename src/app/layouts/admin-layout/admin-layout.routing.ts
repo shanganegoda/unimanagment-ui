@@ -11,6 +11,10 @@ import { QuizComponent } from 'src/app/pages/quiz/quiz.component';
 import { ShowquestionsComponent } from 'src/app/pages/showquestions/showquestions.component';
 import { FullquizComponent } from 'src/app/pages/fullquiz/fullquiz.component';
 import { AnswerquizComponent } from 'src/app/pages/answerquiz/answerquiz.component';
+import { StudentAnswerQuizComponent } from "src/app/pages/Student/student-answer-quiz/student-answer-quiz.component";
+import { StudentAnswerQuestionsComponent } from "src/app/pages/Student/student-answer-questions/student-answer-questions.component";
+import { StudentAnswersComponent } from "src/app/pages/student-answers/student-answers.component";
+import { StudentAnsweredQuestionsComponent } from "src/app/pages/student-answered-questions/student-answered-questions.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -26,5 +30,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'question/:quizId',           component:QuizComponent},
     { path: 'questionlist',   component:ShowquestionsComponent},
     { path: 'quiz',            component:FullquizComponent},
-    { path: 'answer-quiz',            component:AnswerquizComponent}
+    { path: 'answer-quiz',            component:AnswerquizComponent},
+    { path: 'studentAnswerQuiz',            component:StudentAnswerQuizComponent},
+    { path: 'studentAnswerQuestions/:quizId',            component:StudentAnswerQuestionsComponent},
+    { path: 'studentAnswers/:quizId',            component:StudentAnswersComponent},
+    { path: 'studentAnswerQuestions/:quizId/:studentId',            component:StudentAnsweredQuestionsComponent}
+
+
 ];
