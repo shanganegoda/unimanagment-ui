@@ -19,35 +19,35 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/gpa",
     title: "GPA Calculator",
-    icon: "ni-tv-2 text-primary",
+    icon: "ni-hat-3 text-primary",
     class: "",
     role: "student",
   },
   {
     path: "/view-results",
     title: "View Results",
-    icon: "ni-tv-2 text-primary",
+    icon: "ni-paper-diploma text-primary",
     class: "",
     role: "student",
   },
   {
     path: "/attendance",
     title: "Attendance",
-    icon: "ni-circle-08 text-pink",
+    icon: "ni-calendar-grid-58 text-primary",
     class: "",
     role: "lecturer",
   },
   {
     path: "/view-attendance",
     title: "View attendance",
-    icon: "ni-circle-08 text-pink",
+    icon: "ni-align-center text-primary",
     class: "",
     role: "lecturer",
   },
   {
     path: "/quiz",
     title: "Quiz",
-    icon: "ni-circle-08 text-pink",
+    icon: "ni-bullet-list-67 text-primary",
     class: "",
     role: "lecturer",
   },
@@ -61,9 +61,9 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/studentAnswerQuiz",
     title: "Answer Quiz",
-    icon: "ni-circle-08 text-pink",
+    icon: "ni-badge text-primary",
     class: "",
-    role: "lecturer",
+    role: "student",
   },
   // {
   //   path: "/studentAnswers",
@@ -107,23 +107,20 @@ export class SidebarComponent implements OnInit {
   public isCollapsed = true;
   user: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
-    this.menuItems = ROUTES;
 
-    this.menuItems = ROUTES;
-
-    // if (this.user.isLecturer) {
-    //   this.menuItems = ROUTES.filter(
-    //     (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
-    //   );
-    // } else {
-    //   this.menuItems = ROUTES.filter(
-    //     (menuItem) => menuItem.role == "student" || menuItem.role == ""
-    //   );
-    // }
+    if (this.user.isLecturer) {
+      this.menuItems = ROUTES.filter(
+        (menuItem) => menuItem.role == "lecturer" || menuItem.role == ""
+      );
+    } else {
+      this.menuItems = ROUTES.filter(
+        (menuItem) => menuItem.role == "student" || menuItem.role == ""
+      );
+    }
 
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
